@@ -1,1 +1,8 @@
-i
+<div class="hero-unit">
+  <h3>Params</h3>
+  <ul>
+    <% for (var p in todo ) {%>
+      <li><%= p + ':' + params[p]; %></li>
+    <% } %>
+  </ul>
+</div>

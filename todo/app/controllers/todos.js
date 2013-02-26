@@ -29,7 +29,10 @@ var Todos = function () {
   };
 
  this.show = function (req, resp, params) {
-    this.respond({params: params});
+    var self = this;
+    geddy.model.Todo.load(params.id, function(err,todo){
+      self.respond({params:params,todo:todo});
+    });
  };
 
  //Edit Todos here
@@ -43,9 +46,8 @@ var Todos = function () {
 // Update action
  this.update = function (req, resp, params) {
     var self = this;
-    geddy.model.adapter.Todo.load(params.id, function(err,todo){
-      todo.status = params.status;
-      todo.title = params.title;
+    geddy.model.Todo.load(params.id, function(err,todo){
+      todo.updateAttributes(params);
       todo.save(function(err,data){
         if(err){
           params.errors = err;

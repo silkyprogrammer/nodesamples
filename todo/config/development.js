@@ -24,6 +24,7 @@ var config = {
 , model: {
     defaultAdapter: 'mongo'
   }
+, db:{mongo:{dbname:'todo'}}  
 , sessions: {
     store: 'memory'
   , key: 'sid'

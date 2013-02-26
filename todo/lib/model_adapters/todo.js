@@ -22,7 +22,7 @@ this.load = function(id,callback){
       return callback(err,null);
     }
     if(doc){
-      todo = geddy.model.Todo.Create(doc);
+      todo = geddy.model.Todo.create(doc);
     }
     return callback(null,todo);
   });
@@ -72,4 +72,5 @@ this.remove = function(id,callback){
 }
 
 })();
+
 exports.Todo = Todo;
